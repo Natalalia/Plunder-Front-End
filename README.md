@@ -6,6 +6,8 @@ This is the Front End of the final project. It is a interactive treasurehunt sty
 
 Back End Repo: [https://github.com/Natalalia/Plunder-Back-End](https://github.com/Natalalia/Back-End-Project)
 
+Deployed version: https://treasurehuntplunder.netlify.com/
+
 ## Prerequisites
 
 This development runs on a node.js runtime environment. It is built using react. A development server can be run o a local port and thr app can be dsplayed in a browser window.
