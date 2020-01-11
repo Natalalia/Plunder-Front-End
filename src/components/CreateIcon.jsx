@@ -1,18 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { makeStyles, createMuiTheme } from "@material-ui/core/styles";
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  Button,
-  Fab,
-  Icon
-} from "@material-ui/core";
-import { Link } from "@reach/router";
-import AddIcon from "@material-ui/icons/Add";
-// import { purple, green } from "@material-ui/core/colors/purple";
-import SvgIcon from "@material-ui/core/SvgIcon";
+import { makeStyles } from "@material-ui/core/styles";
+import { Fab } from "@material-ui/core";
 
 const CreateIcon = () => {
   const { t } = useTranslation();
@@ -25,7 +14,6 @@ const CreateIcon = () => {
       className={classes.fab}
     >
       {t("create")}
-      {/* <AddIcon /> */}
     </Fab>
   );
 };

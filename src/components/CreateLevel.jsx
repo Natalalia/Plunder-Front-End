@@ -1,21 +1,13 @@
 import React, { Component } from "react";
 import LevelInputButton from "./LevelInputButton";
+
 import {
-  Card,
   TextField,
-  FormGroup,
-  FormControlLabel,
-  Checkbox,
   Button,
-  Fab,
   Grid,
-  Container,
   Typography,
   CssBaseline
 } from "@material-ui/core";
-import { makeStyles, createMuiTheme } from "@material-ui/core/styles";
-import AddIcon from "@material-ui/icons/Add";
-import SvgIcon from "@material-ui/core/SvgIcon";
 import vision from "react-cloud-vision-api";
 import CameraIcon from "./CameraIcon";
 import GPSIcon from "./GPSIcon";
@@ -43,21 +35,26 @@ class CreateLevel extends Component {
       clue2,
       clue3,
       wintext,
-      windata,
-      loading
+      windata
     } = this.state;
+
     return (
-      // <Container>
       <div>
         <CssBaseline />
 
-        <Typography component="h1" variant="h5">
-          {t("Create new level")}
-        </Typography>
+        <div style={{ padding: 8 }}>
+          <Typography component="h1" variant="h5">
+            {t("Create new level")}
+          </Typography>
+        </div>
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <TextField
-              //variant="outlined"
+              InputLabelProps={{
+                style: {
+                  color: "black"
+                }
+              }}
               fullWidth
               value={mainclue}
               label={t("Main clue")}
@@ -67,7 +64,11 @@ class CreateLevel extends Component {
 
           <Grid item xs={12}>
             <TextField
-              //variant="outlined"
+              InputLabelProps={{
+                style: {
+                  color: "black"
+                }
+              }}
               fullWidth
               value={clue2}
               label={t("Second clue")}
@@ -77,7 +78,11 @@ class CreateLevel extends Component {
 
           <Grid item xs={12}>
             <TextField
-              //variant="outlined"
+              InputLabelProps={{
+                style: {
+                  color: "black"
+                }
+              }}
               fullWidth
               value={clue3}
               label={t("Third clue")}
@@ -85,71 +90,44 @@ class CreateLevel extends Component {
             />
           </Grid>
 
-          {/* <FormGroup row>
-            <FormControlLabel
-              control={
-                <Checkbox
-                  value="text"
-                  onClick={(e) => this.handleCheck("string")}
-                  checked={wincondition === "string"}
-                />
-              }
-              label="Text"
-            />
-            <FormControlLabel
-              control={
-                <Checkbox
-                  value="image"
-                  onClick={(e) => this.handleCheck("image")}
-                  checked={wincondition === "image"}
-                />
-              }
-              label="Image"
-            />
+          <Typography variant="h5">{t("Select win condition")}</Typography>
 
-            <FormControlLabel
-              control={
-                <Checkbox
-                  value="gps"
-                  onClick={(e) => this.handleCheck("gps")}
-                  checked={wincondition === "gps"}
-                />
-              }
-              label="GPS"
-            />
-          </FormGroup> */}
-
-          <Typography>{t("Select win condition")}</Typography>
-
-          <Grid container spacing={3} justify="center">
-            <div
-              style={{ marginBottom: "10px" }}
-              data-cy="text-condition-button"
-              onClick={e => this.handleCheck("string")}
+          <div style={{ padding: 24 }}>
+            <Grid
+              container
+              direction="row"
+              justify="space-around"
+              alignItems="center"
             >
-              <TextIcon clicked={this.state.wincondition === "string"} />
-              {t("Text")}
-            </div>
+              <div
+                data-cy="text-condition-button"
+                onClick={e => this.handleCheck("string")}
+              >
+                <TextIcon clicked={this.state.wincondition === "string"} />
+                {t("Text")}
+              </div>
 
-            <div
-              data-cy="img-condition-button"
-              onClick={e => this.handleCheck("image")}
-            >
-              <CameraIcon clicked={this.state.wincondition === "image"} />
-              {t("Image")}
-            </div>
+              <div
+                data-cy="img-condition-button"
+                onClick={e => this.handleCheck("image")}
+              >
+                <CameraIcon clicked={this.state.wincondition === "image"} />
+                {t("Image")}
+              </div>
 
-            <div
-              data-cy="gps-condition-button"
-              onClick={e => this.handleCheck("gps")}
-            >
-              <GPSIcon clicked={this.state.wincondition === "gps"} />
-              {t("GPS")}
-            </div>
-          </Grid>
-
+              <div
+                data-cy="gps-condition-button"
+                onClick={e => this.handleCheck("gps")}
+              >
+                <GPSIcon clicked={this.state.wincondition === "gps"} />
+                {t("GPS")}
+              </div>
+            </Grid>
+          </div>
           <Grid item xs={12}>
             <LevelInputButton
+              windata={windata}
+              updateWinData={this.updateWinData}
               wincondition={wincondition}
               handleWinData={this.handleWinData}
               handleGPS={this.handleGPS}
@@ -159,7 +137,11 @@ class CreateLevel extends Component {
 
           <Grid item xs={12}>
             <TextField
-              //variant="outlined"
+              InputLabelProps={{
+                style: {
+                  color: "black"
+                }
+              }}
               fullWidth
               value={wintext}
               label={t("Level completion message")}
@@ -169,7 +151,7 @@ class CreateLevel extends Component {
         </Grid>
 
         {wincondition && mainclue && clue2 && clue3 && wintext && windata && (
-          <Fab
+          <Button
             onClick={() => {
               this.props.handleLevel(this.state);
               this.setState({
@@ -181,16 +163,15 @@ class CreateLevel extends Component {
                 windata: ""
               });
             }}
-            color="primary"
+            color="black"
             aria-label="Add"
-            variant="extended"
+            variant="outlined"
+            style={{ margin: "24px" }}
           >
-            <AddIcon />
             {t("Add Level")}
-          </Fab>
+          </Button>
         )}
       </div>
-      // </Container>
     );
   }
 
@@ -202,10 +183,14 @@ class CreateLevel extends Component {
     this.setState({ [str]: value });
   };
 
+  updateWinData = value => {
+    this.setState({ windata: value });
+  };
+
   handleWinData = value => {
     const { wincondition } = this.state;
     if (wincondition === "string") {
-      this.setState({ windata: value, loading: false });
+      this.setState({ windata: value, loading: false, answerValue: "" });
     }
     if (wincondition === "image") {
       this.setState({ loading: true });

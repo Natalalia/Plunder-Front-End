@@ -27,15 +27,22 @@ class Create extends Component {
         >
           <CssBaseline />
 
-          <Typography component="h1" variant="h5">
-            {t("Create Your Game")}
-          </Typography>
+          <div style={{ padding: 24 }}>
+            <Typography component="h1" variant="h5">
+              {t("Create Your Game")}
+            </Typography>
+          </div>
 
           <Typography>{t("Create game header")}</Typography>
 
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
+                InputLabelProps={{
+                  style: {
+                    color: "black"
+                  }
+                }}
                 label={t("Title")}
                 onChange={e => this.handleChange("title", e.target.value)}
               />
@@ -45,6 +52,11 @@ class Create extends Component {
               <TextField
                 fullWidth
                 multiline
+                InputLabelProps={{
+                  style: {
+                    color: "black"
+                  }
+                }}
                 label={t("Description")}
                 onChange={e => this.handleChange("description", e.target.value)}
               />
@@ -54,8 +66,12 @@ class Create extends Component {
               <TextField
                 fullWidth
                 multiline
+                InputLabelProps={{
+                  style: {
+                    color: "black"
+                  }
+                }}
                 label={t("Game completion message")}
-                onChange={e => this.handleChange("completion", e.target.value)}
                 onChange={e => this.handleChange("completion", e.target.value)}
               />
             </Grid>
@@ -70,6 +86,9 @@ class Create extends Component {
 
             {
               <Button
+                variant="outlined"
+                color="inherit"
+                style={{ margin: "24px" }}
                 disabled={
                   !title || !description || !completion || !levels.length
                 }

@@ -1,6 +1,6 @@
 import React from "react";
 import { Fab } from "@material-ui/core";
-import { makeStyles, createMuiTheme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import SvgIcon from "@material-ui/core/SvgIcon";
 
 const useStyles = makeStyles(theme => ({

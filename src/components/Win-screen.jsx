@@ -1,9 +1,22 @@
 import React, { useState } from "react";
-import { Link as linkReach } from "@reach/router";
 import { useTranslation } from "react-i18next";
-import { Typography, Link, Grid, Button } from "@material-ui/core";
+import { Typography, Grid, Button, withStyles } from "@material-ui/core";
 import LeaderBoard from "./LeaderBoard";
 import pirate from "../pirate.png";
+
+const style = {
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    justifyItems: "center"
+  },
+  img: {
+    maxWidth: "100%",
+    alignSelf: "center",
+    objectFit: "contain"
+  }
+};
 
 const WinScreen = props => {
   const { t } = useTranslation();
@@ -17,7 +30,11 @@ const WinScreen = props => {
         flexDirection: "column"
       }}
     >
-      <img src={pirate} style={{ maxWidth: "100vw", alignSelf: "center" }} />
+      <img
+        alt={"pirate"}
+        src={pirate}
+        style={{ maxWidth: "100vw", alignSelf: "center" }}
+      />
 
       <Typography variant="h3" align="center">
         {props.completionMes}
@@ -43,4 +60,4 @@ const WinScreen = props => {
   );
 };
 
-export default WinScreen;
+export default withStyles(style)(WinScreen);

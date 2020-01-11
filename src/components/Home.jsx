@@ -23,9 +23,12 @@ function Home(props) {
   const { classes } = props;
   return (
     <div className={classes.wrapper}>
-      <Typography variant="h2" className={classes.title}>
-        <i>The Hunt</i>
-      </Typography>
+      <img
+        style={{ width: "60vw", minWidth: "310px" }}
+        alt="logo"
+        src={require("../mainLogo.png")}
+      />
+
       <Typography variant="h6" className={classes.blurb}>
         {t("introduction paragraph")}
       </Typography>

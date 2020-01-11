@@ -7,22 +7,13 @@ import Home from "./components/Home";
 import Create from "./components/Create";
 import Play from "./components/Play";
 import { getGames } from "./Api/Api";
-import { Container, MuiThemeProvider } from "@material-ui/core/";
-import test3 from "./test3.jpg";
-
-const styles = {
-  paperContainer: {
-    backgroundImage: `url(${test3})`,
-    width: "100%",
-    margin: "0px"
-  }
-};
+import { MuiThemeProvider } from "@material-ui/core/";
 
 class App extends React.Component {
   state = {};
 
   componentDidMount = () => {
-    getGames().then((games) => {
+    getGames().then(games => {
       this.setState({ games });
     });
   };

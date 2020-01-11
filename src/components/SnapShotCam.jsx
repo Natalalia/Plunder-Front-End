@@ -32,9 +32,6 @@ class SnapShotCam extends Component {
               isDisplayStartCameraError={true}
               isFullscreen={true}
               sizeFactor={1}
-              onTakePhoto={dataUri => {
-                this.onTakePhoto(dataUri);
-              }}
             />
           </Modal>
         )}
@@ -43,7 +40,6 @@ class SnapShotCam extends Component {
             variant="outlined"
             color="inherit"
             data-cy="img-condition-input"
-
             onClick={() => {
               this.handleClick();
             }}

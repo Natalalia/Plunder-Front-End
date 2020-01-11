@@ -1,7 +1,4 @@
 import { createMuiTheme } from "@material-ui/core";
-import blue from "@material-ui/core/colors/blue";
-import green from "@material-ui/core/colors/green";
-import red from "@material-ui/core/colors/red";
 import grey from "@material-ui/core/colors/grey";
 
 export default createMuiTheme({
@@ -15,7 +12,6 @@ export default createMuiTheme({
     }
   },
   palette: {
-    //   primary: grey,
     secondary: grey
   },
   typography: {
@@ -31,9 +27,4 @@ export default createMuiTheme({
       }
     }
   }
-  // overrides: {
-  //   Mui: {
-  //     underline: "none"
-  //   }
-  // }
 });

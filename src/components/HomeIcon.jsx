@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Fab } from "@material-ui/core";
-// import { purple, green } from "@material-ui/core/colors/purple";
 import SvgIcon from "@material-ui/core/SvgIcon";
 
 const HomeIcon = () => {
