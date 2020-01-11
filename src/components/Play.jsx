@@ -55,7 +55,10 @@ class Play extends React.Component {
   }
 
   checkAnswer = answer => {
-    if (this.state.game.levels[this.state.curLevel].windata === answer) {
+    if (
+      this.state.game.levels[this.state.curLevel].windata.toLowerCase() ===
+      answer.toLowerCase()
+    ) {
       this.setState(prevState => {
         return { changeLevelButton: true };
       });
@@ -81,8 +84,6 @@ class Play extends React.Component {
     let metersX = distanceX * 100000;
     let metersY = distanceY * 100000;
     let sqrt = Math.sqrt(metersX * metersY).toFixed(0);
-
-    console.log(metersX, metersY, "x and y from ofice to port street", sqrt);
 
     if (distanceX < 0.0005 && distanceY < 0.0005) {
       this.setState(prevState => {

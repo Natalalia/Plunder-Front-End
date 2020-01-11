@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Toolbar, Typography } from "@material-ui/core";
+import { Toolbar } from "@material-ui/core";
 import { Link } from "@reach/router";
 import LocDropDown from "./LocDropDown";
 import CreateIcon from "./CreateIcon";
@@ -11,23 +11,23 @@ function Header(props) {
   return (
     <div className={classes.root}>
       <Toolbar>
-        <div style={{ display: "inline" }}>
-          {props.location.pathname !== "/" && (
-            <Typography variant='h5' className={classes.title}>
-              <i>The Hunt</i>
-            </Typography>
-          )}
-        </div>
+        {props.location.pathname !== "/" && (
+          <img
+            style={{ width: "40vw" }}
+            alt="logo"
+            src={require("../mainLogo.png")}
+          />
+        )}
         <div style={{ marginLeft: "auto" }}>
           <LocDropDown />
           {props.location.pathname === "/" ? (
-            <Link className={classes.button} to='/create'>
+            <Link className={classes.button} to="/create">
               <div style={{ display: "inline", paddingLeft: "10px" }}>
                 <CreateIcon />
               </div>
             </Link>
           ) : (
-            <Link className={classes.button} to='/'>
+            <Link className={classes.button} to="/">
               <HomeIcon />
             </Link>
           )}
@@ -37,7 +37,7 @@ function Header(props) {
   );
 }
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1
   },

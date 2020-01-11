@@ -19,13 +19,13 @@ class LevelDisplay extends React.Component {
     return (
       <div>
         {this.props.curLevel <= this.props.numLevels - 1 ? (
-          <div className="root">
+          <div className='root'>
             <Grid
               container
               spacing={6}
-              direction="column"
-              justify="center"
-              alignItems="center"
+              direction='column'
+              justify='center'
+              alignItems='center'
             >
               <Grid item xs={12}>
                 <div
@@ -36,24 +36,24 @@ class LevelDisplay extends React.Component {
                     justifyContent: "center"
                   }}
                 >
-                  <Typography variant="h3" align="center">
+                  <Typography variant='h3' align='center'>
                     {this.props.title}
                   </Typography>
                 </div>
               </Grid>
               <Grid item xs={12}>
-                <Typography variant="h4">
+                <Typography variant='h4'>
                   {t("Level")} {this.props.curLevel + 1}
                 </Typography>
               </Grid>
               <Grid item xs={12}>
-                <Typography variant="h5">
+                <Typography variant='h5'>
                   {t("Task")} {this.props.gameLevel.mainclue}
                 </Typography>
               </Grid>
 
               {this.props.attempts === 1 && (
-                <Typography variant="h5">
+                <Typography variant='h5'>
                   {t("Clue 1")} {this.props.gameLevel.clue2}
                 </Typography>
               )}
@@ -61,11 +61,11 @@ class LevelDisplay extends React.Component {
               {this.props.attempts >= 2 && (
                 <Grid item xs={12}>
                   <div>
-                    <Typography variant="h5">
+                    <Typography variant='h5'>
                       {t("Clue 1")} {this.props.gameLevel.clue2}
                     </Typography>
 
-                    <Typography variant="h5">
+                    <Typography variant='h5'>
                       {t("Clue 2")} {this.props.gameLevel.clue3}
                     </Typography>
                   </div>
@@ -77,19 +77,19 @@ class LevelDisplay extends React.Component {
                   <form onSubmit={this.handleSubmit}>
                     <Grid item xs={12}>
                       <TextField
-                        type="text"
+                        type='text'
                         onChange={this.handleChange}
                         value={this.state.input}
                       />
                     </Grid>
                     <br />
                     <Grid item xs={12} style={{ justifyContent: "center" }}>
-                      <Grid container alignItems="center" justify="center">
+                      <Grid container alignItems='center' justify='center'>
                         <Button
-                          type="submit"
-                          variant="outlined"
-                          color="inherit"
-                          align="center"
+                          type='submit'
+                          variant='outlined'
+                          color='inherit'
+                          align='center'
                         >
                           {t("Submit")}
                         </Button>
@@ -111,13 +111,13 @@ class LevelDisplay extends React.Component {
                     <div>
                       <Button
                         onClick={this.handleGPS}
-                        variant="outlined"
-                        color="inherit"
+                        variant='outlined'
+                        color='inherit'
                       >
                         {t("Check GPS")}
                       </Button>
                       {this.props.distanceAway && (
-                        <Typography variant="h6">
+                        <Typography variant='h6'>
                           {t("initial distance msg")} {this.props.distanceAway}{" "}
                           {t("end distance msg")}
                         </Typography>
@@ -129,8 +129,8 @@ class LevelDisplay extends React.Component {
               {this.props.attempts >= 2 && !this.props.changeLevelButton && (
                 <Button
                   onClick={this.props.changeLevel}
-                  variant="outlined"
-                  color="inherit"
+                  variant='outlined'
+                  color='inherit'
                   style={{ margin: "5px" }}
                 >
                   {this.props.curLevel + 1 < this.props.numLevels ? (
@@ -143,20 +143,22 @@ class LevelDisplay extends React.Component {
 
               {this.props.changeLevelButton === false &&
                 this.props.winCondition === "image" && (
-                  <div style={{ height: "100vh" }} className="App">
+                  <div style={{ height: "100vh" }} className='App'>
                     <SnapShotCam handlePhoto={this.handleImage} />
                   </div>
                 )}
 
               {this.props.changeLevelButton && (
                 <div style={{ textAlign: "center", justifyContent: "center" }}>
-                  <div style={{ fontSize: "50px" }}>
+                  {/* <div style={{ width: "70%" }}> */}
+                  <Typography variant='h5'>
                     {this.props.gameLevel.wintext}
-                  </div>
+                  </Typography>
+                  {/* </div> */}
                   <Button
                     onClick={this.props.changeLevel}
-                    variant="outlined"
-                    color="inherit"
+                    variant='outlined'
+                    color='inherit'
                   >
                     {this.props.curLevel + 1 < this.props.numLevels ? (
                       <span>{t("Next Level")}</span>

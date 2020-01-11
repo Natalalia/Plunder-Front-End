@@ -19,7 +19,7 @@ const useStyles = makeStyles({
 const LocDropDown = () => {
   const classes = useStyles();
   const { t, i18n } = useTranslation();
-  const [lang, setLang] = useState("English");
+  const [setLang] = useState("English");
   const langObj = { en: "English", es: "Spanish" };
   return (
     <FormControl className={classes.form}>

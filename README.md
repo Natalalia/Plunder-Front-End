@@ -1,13 +1,12 @@
-# _insert project title_
+# Plunder
 
 ## Overview
 
 This is the Front End of the final project. It is a interactive treasurehunt style game utilizing text answers, gps coordinates and picture classification.
 
-Back End Repo: [https://github.com/Natalalia/Back-End-Project](https://github.com/Natalalia/Back-End-Project)
-Back End hosted:
+Back End Repo: [https://github.com/Natalalia/Plunder-Back-End](https://github.com/Natalalia/Back-End-Project)
 
-Front End Hosted:
+Deployed version: https://treasurehuntplunder.netlify.com/
 
 ## Prerequisites
 
